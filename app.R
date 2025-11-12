@@ -15,10 +15,10 @@ ui <- htmltools::htmlTemplate(
     bslib::layout_sidebar(
       sidebar = sidebar, # `scr##_sidebar.R`
 
-      # shiny::htmlOutput(outputId = "figureTitle"),
+      shiny::htmlOutput(outputId = "figureTitle"),
       # shiny::htmlOutput(outputId = "figureSummary"),
-      plotly::plotlyOutput(outputId = "scatterplot")#,
-      # shiny::htmlOutput(outputId = "figureCaption")
+      plotly::plotlyOutput(outputId = "figure"),
+      shiny::htmlOutput(outputId = "figureCaption")
     ) |>
       htmltools::tagAppendAttributes(
         #https://getbootstrap.com/docs/5.0/utilities/api/
@@ -29,56 +29,38 @@ ui <- htmltools::htmlTemplate(
   )
 )
 
-# ui <- fluidPage(
-#   
-#   titlePanel(title = "Compare hourly values by station"),
-#   
-#   sidebarLayout(
-#     
-#     sidebarPanel(
-#       id = "sidebarPanel",
-#       width = 4,
-#       verticalLayout(
-#         
-#       )
-#     ), # sidebarPanel()
-#     
-#     mainPanel(
-#       id = "mainPanel",
-#       width = 8,
-#       
-#       fluidRow(
-#         column(
-#           width = 11, 
-#           align = "left", 
-#           offset = 1, 
-#           plotlyOutput(outputId = "scatterplot")
-#         )
-#       )
-#     ) #mainPanel()
-#   ) #sidebarLayout()
-# ) #fluidpage()
-
 
 # Server -----
 
 
 server <- function(input, output, session) {
   
-  fullJoinHourly <- eventReactive(input$station, {
-    fxn_fullJoinHourly(
-      input$year,
-      input$station
+  fullJoin <- shiny::eventReactive(input$azmetStation, {
+    fxn_fullJoin(
+      year = input$year,
+      station = input$azmetStation
     )
   })
   
-  output$scatterplot <- renderPlotly({
-    fxn_scatterplot(
-      inData = fullJoinHourly(),
+  output$figure <- plotly::renderPlotly({
+    fxn_figure(
+      inData = fullJoin(),
       legacyVar = input$legacyVars,
       apiVar = input$apiVars
     )
   })
+  
+  output$figureCaption <- shiny::renderUI({
+    fxn_figureCaption()
+  })
+  
+  output$figureTitle <- shiny::renderUI({
+    fxn_figureTitle(azmetStation = input$azmetStation)
+  })
 }
 
-shinyApp(ui = ui, server = server)
+
+# Run --------------------
+
+
+shiny::shinyApp(ui = ui, server = server)

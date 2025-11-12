@@ -1,4 +1,4 @@
-fxn_scatterplot <- function(inData, legacyVar, apiVar) {
+fxn_figure <- function(inData, legacyVar, apiVar) {
   ggplot2::ggplot(
     data = inData,
     mapping = aes(

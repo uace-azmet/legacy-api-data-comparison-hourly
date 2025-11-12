@@ -1,4 +1,4 @@
-fxn_fullJoinHourly <- function(year, station) {
+fxn_fullJoin <- function(year, station) {
   
   stationInfo <- station_list %>% 
     dplyr::filter(stn == station)
@@ -86,11 +86,11 @@ fxn_fullJoinHourly <- function(year, station) {
     ) %>% 
     dplyr::mutate(date_datetime = as.character(date_datetime))
   
-  fullJoinHourly <- dplyr::full_join(
+  fullJoin <- dplyr::full_join(
     x = legacy,
     y = api,
     by = "date_datetime"
   )
   
-  return(fullJoinHourly)
+  return(fullJoin)
 }

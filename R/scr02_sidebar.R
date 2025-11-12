@@ -34,7 +34,7 @@ sidebar <- bslib::sidebar(
   ),
   
   shiny::selectInput(
-    inputId = "station",
+    inputId = "azmetStation",
     label = "Station",
     choices = sort(station_list$stn)
   ),
