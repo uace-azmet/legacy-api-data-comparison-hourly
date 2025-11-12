@@ -14,7 +14,7 @@ fxn_figureTitle <- function(azmetStation) {
           htmltools::HTML("&nbsp;"),
           toupper(
             paste0(
-              "Legacy and API Data from the AZMet ", azmetStation, " Station"
+              "Hourly Data from the AZMet ", azmetStation, " Station"
             )
           ),
           htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),

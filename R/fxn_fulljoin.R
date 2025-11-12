@@ -1,9 +1,16 @@
-fxn_fullJoin <- function(year, station) {
+#' `fxn_fullJoin.R` - Download, transform, and join legacy and API data
+#' 
+#' @param station - AZMet station selection by user
+#' @param year - Year selection by user
+#' @return `fullJoin` - Downloaded, transformed, and joined legacy and API data
+
+
+fxn_fullJoin <- function(station, year) {
   
   stationInfo <- station_list %>% 
     dplyr::filter(stn == station)
   
-  legacy <- azmet_hourly_data_download(
+  legacy <- azmet_hourly_data_download( # from `uace-azmet/legacy-data-migration`
     station_list,
     station,
     years = year

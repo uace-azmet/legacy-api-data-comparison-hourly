@@ -37,8 +37,8 @@ server <- function(input, output, session) {
   
   fullJoin <- shiny::eventReactive(input$azmetStation, {
     fxn_fullJoin(
-      year = input$year,
-      station = input$azmetStation
+      station = input$azmetStation,
+      year = input$year
     )
   })
   
