@@ -27,6 +27,9 @@ ui <- htmltools::htmlTemplate(
 
 server <- function(input, output, session) {
   
+  
+  # Reactives -----
+  
   fullJoin <- shiny::eventReactive(input$retrieveHourlyData, {
     idRetrievingHourlyData <- shiny::showNotification(
       ui = "Retrieving hourly data . . .",
@@ -48,6 +51,25 @@ server <- function(input, output, session) {
     )
   })
   
+  # scatterplot <- shiny::eventReactive(input$retrieveHourlyData, {
+  #   fxn_scatterplot(
+  #     inData = fullJoin(),
+  #     legacyVar = input$legacyVars,
+  #     apiVar = input$apiVars
+  #   )
+  # })
+  
+  # scatterplotCaption <- shiny::eventReactive(input$retrieveHourlyData, {
+  #   fxn_scatterplotCaption()
+  # })
+  
+  scatterplotTitle <- shiny::eventReactive(input$retrieveHourlyData, {
+    fxn_scatterplotTitle(azmetStation = input$azmetStation)
+  })
+  
+  
+  # Outputs -----
+  
   output$scatterplot <- plotly::renderPlotly({
     fxn_scatterplot(
       inData = fullJoin(),
@@ -62,8 +84,7 @@ server <- function(input, output, session) {
   })
   
   output$scatterplotTitle <- shiny::renderUI({
-    shiny::req(fullJoin())
-    fxn_scatterplotTitle(azmetStation = input$azmetStation)
+    scatterplotTitle()
   })
 }
 

@@ -28,7 +28,7 @@ sidebarScatterplot <- bslib::sidebar(
       htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
       bslib::tooltip(
         bsicons::bs_icon("info-circle"),
-        "Once data are retrieved, select legacy and API variables to display in the graph.",
+        "Select Legacy and API variables to display in the graph.",
         id = "infoDataOptions",
         placement = "right"
       ),
