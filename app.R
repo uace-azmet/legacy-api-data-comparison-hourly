@@ -8,22 +8,14 @@ ui <- htmltools::htmlTemplate(
   
   filename = "azmet-shiny-template.html",
   
-  pageFluid = bslib::page_fluid(
+  pageDataComparisonHourly = bslib::page(
     title = NULL,
     theme = theme, # `scr##_theme.R`
     
     bslib::layout_sidebar(
-      sidebar = sidebar, # `scr##_sidebar.R`
-
-      shiny::htmlOutput(outputId = "figureTitle"),
-      # shiny::htmlOutput(outputId = "figureSummary"),
-      plotly::plotlyOutput(outputId = "figure"),
-      shiny::htmlOutput(outputId = "figureCaption")
-    ) |>
-      htmltools::tagAppendAttributes(
-        #https://getbootstrap.com/docs/5.0/utilities/api/
-        class = "border-0 rounded-0 shadow-none"
-      ),
+      sidebar = sidebarPage, # `scr##_sidebarPage.R`
+      navsetCardTab
+    ),
     
     # shiny::htmlOutput(outputId = "pageBottomText")
   )
@@ -35,18 +27,18 @@ ui <- htmltools::htmlTemplate(
 
 server <- function(input, output, session) {
   
-  fullJoin <- shiny::eventReactive(input$retrieveData, {
-    idRetrievingData <- shiny::showNotification(
-      ui = "Retrieving data . . .",
+  fullJoin <- shiny::eventReactive(input$retrieveHourlyData, {
+    idRetrievingHourlyData <- shiny::showNotification(
+      ui = "Retrieving hourly data . . .",
       action = NULL,
       duration = NULL,
       closeButton = FALSE,
-      id = "idRetrievingData",
+      id = "idRetrievingHourlyData",
       type = "message"
     )
     
     on.exit(
-      shiny::removeNotification(id = idRetrievingData), 
+      shiny::removeNotification(id = idRetrievingHourlyData), 
       add = TRUE
     )
     

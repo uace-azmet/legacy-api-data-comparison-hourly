@@ -1,4 +1,4 @@
-sidebar <- bslib::sidebar(
+sidebarScatterplot <- bslib::sidebar(
   width = 300,
   position = "left",
   open = list(desktop = "open", mobile = "always-above"),
@@ -14,29 +14,16 @@ sidebar <- bslib::sidebar(
   htmltools::p(
     bsicons::bs_icon("sliders"), 
     htmltools::HTML("&nbsp;"), 
-    "DATA OPTIONS",
+    "DATA DISPLAY",
     htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
     bslib::tooltip(
       bsicons::bs_icon("info-circle"),
-      "Select a year, AZMet station, Legacy variable, and API variable.",
+      "Once data are retrieved, select legacy and API variables to display in the graph.",
       id = "infoDataOptions",
       placement = "right"
     ),
     
-    class = "data-options-title"
-  ),
-  
-  shiny::selectInput(
-    inputId = "year",
-    label = "Year",
-    choices = sort(obsYears, decreasing = TRUE),
-    selected = obsYearsInitial
-  ),
-  
-  shiny::selectInput(
-    inputId = "azmetStation",
-    label = "Station",
-    choices = sort(station_list$stn)
+    class = "data-display-title"
   ),
   
   shiny::selectInput(
@@ -77,11 +64,5 @@ sidebar <- bslib::sidebar(
       "wind_vector_dir_stand_dev", 
       "wind_vector_magnitude"
     )
-  ),
-  
-  shiny::actionButton(
-    inputId = "retrieveData",
-    label = "RETRIEVE DATA",
-    class = "btn btn-block btn-blue"
   )
 ) # bslib::sidebar()
