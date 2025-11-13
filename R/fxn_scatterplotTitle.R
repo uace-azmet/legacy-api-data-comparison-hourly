@@ -1,11 +1,11 @@
-#' `fxn_figureTitle.R` - Build title for figure
+#' `fxn_scatterplotTitle.R` - Build title for scatterplot
 #' 
 #' @param azmetStation - AZMet station selection by user
-#' @return `figureTitle` - Title for figure based on selected station
+#' @return `scatterplotTitle` - Title for scatterplot based on selected station
 
 
-fxn_figureTitle <- function(azmetStation) {
-  figureTitle <- 
+fxn_scatterplotTitle <- function(azmetStation) {
+  scatterplotTitle <- 
     htmltools::p(
       htmltools::HTML(
         paste0(
@@ -21,14 +21,14 @@ fxn_figureTitle <- function(azmetStation) {
           bslib::tooltip(
             bsicons::bs_icon("info-circle"),
             "Hover over points for station, date, hour, and variable values.",
-            id = "infofigureTitle",
+            id = "infoScatterplotTitle",
             placement = "right"
           )
         ),
       ),
       
-      class = "figure-title"
+      class = "scatterplot-title"
     )
   
-  return(figureTitle)
+  return(scatterplotTitle)
 }

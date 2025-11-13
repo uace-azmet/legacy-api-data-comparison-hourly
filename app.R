@@ -48,22 +48,22 @@ server <- function(input, output, session) {
     )
   })
   
-  output$figure <- plotly::renderPlotly({
-    fxn_figure(
+  output$scatterplot <- plotly::renderPlotly({
+    fxn_scatterplot(
       inData = fullJoin(),
       legacyVar = input$legacyVars,
       apiVar = input$apiVars
     )
   })
   
-  output$figureCaption <- shiny::renderUI({
+  output$scatterplotCaption <- shiny::renderUI({
     shiny::req(fullJoin())
-    fxn_figureCaption()
+    fxn_scatterplotCaption()
   })
   
-  output$figureTitle <- shiny::renderUI({
+  output$scatterplotTitle <- shiny::renderUI({
     shiny::req(fullJoin())
-    fxn_figureTitle(azmetStation = input$azmetStation)
+    fxn_scatterplotTitle(azmetStation = input$azmetStation)
   })
 }
 

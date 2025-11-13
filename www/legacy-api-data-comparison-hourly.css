@@ -137,21 +137,22 @@
   padding-top: 24px !important;
 }
 */
-.scatterplot-footer {
+.scatterplot-caption {
   color: #606060; 
   font-size: 0.85rem;
   font-style: normal;
   margin-top: 0.5rem;
 }
-
+/*
 .scatterplot-summary {
   color: #191919;
   font-weight: plain;
   margin-bottom: 0px!important;
   margin-top: 4px !important;
 }
-
+*/
 .scatterplot-title {
+  margin-top: 1.5rem;
   padding-bottom: 1rem !important;
 }
 
@@ -199,10 +200,6 @@
 }
 */
 /* id */
-
-#retrieveHourlyData {
-  margin-top: 24px !important;
-}
 
 #year {
   margin-top: 32px;

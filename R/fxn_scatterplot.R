@@ -1,9 +1,9 @@
-#' `fxn_figure.R` - Build scatterplot of legacy versus API values
+#' `fxn_scatterplot.R` - Build scatterplot of legacy versus API values
 #' 
 #' @param inData - Output from `fxn_fullJoin.R`
 #' @param legacyVar - Legacy variable selection by user
 #' @param apiVar - API variable selection by user
-#' @return `figure` - Plotly rendered scatterplot
+#' @return `scatterplot` - Plotly rendered scatterplot
 
 # https://plotly-r.com/ 
 # https://plotly.com/r/reference/ 
@@ -12,17 +12,17 @@
 # https://www.color-hex.com/color-palette/1041718
 
 
-fxn_figure <- function(inData, legacyVar, apiVar) {
+fxn_scatterplot <- function(inData, legacyVar, apiVar) {
   
   inData <- inData |>
     dplyr::mutate(date_datetime = lubridate::ymd_hms(date_datetime))
   
-  figureFontFamily <- "proxima-nova, calibri, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  scatterplotFontFamily <- "proxima-nova, calibri, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
   
   max <- max(inData[[legacyVar]], inData[[apiVar]]) + (0.03 * max(inData[[legacyVar]], inData[[apiVar]]))
   min <- min(inData[[legacyVar]], inData[[apiVar]]) - (0.03 * min(inData[[legacyVar]], inData[[apiVar]]))
 
-  figure <-
+  scatterplot <-
     plotly::plot_ly(
       data = inData,
       x = ~.data[[legacyVar]],
@@ -64,14 +64,14 @@ fxn_figure <- function(inData, legacyVar, apiVar) {
     plotly::layout(
       font = list(
         color = "#191919",
-        family = figureFontFamily,
+        family = scatterplotFontFamily,
         size = 13
       ),
       hoverlabel = list(
         bordercolor = "rgba(0, 0, 0, 0)",
         font = list(
           color = "#FFFFFF",
-          family = figureFontFamily,
+          family = scatterplotFontFamily,
           size = 14
         )
       ),
@@ -123,5 +123,5 @@ fxn_figure <- function(inData, legacyVar, apiVar) {
       )
     )
 
-  return(figure)
+  return(scatterplot)
 }

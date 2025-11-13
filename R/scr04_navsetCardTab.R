@@ -23,10 +23,10 @@ navsetCardTab <- bslib::navset_card_tab(
     bslib::layout_sidebar(
       sidebar = sidebarScatterplot, # `scr##_sidebarScatterplot.R`
       
-      shiny::htmlOutput(outputId = "figureTitle"),
+      shiny::htmlOutput(outputId = "scatterplotTitle"),
       # shiny::htmlOutput(outputId = "figureSummary"),
-      plotly::plotlyOutput(outputId = "figure"),
-      shiny::htmlOutput(outputId = "figureCaption")
+      plotly::plotlyOutput(outputId = "scatterplot"),
+      shiny::htmlOutput(outputId = "scatterplotCaption")
     )
   ),
   
