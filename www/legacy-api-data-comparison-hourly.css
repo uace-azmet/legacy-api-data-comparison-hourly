@@ -41,25 +41,20 @@
   color: #FFFFFF;
 }
 
+
+
+
+
+
+
+
+
+
 .card-body.bslib-gap-spacing.html-fill-item.html-fill-container {
   padding-bottom: 24px;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 48px;
-}
-
-.century.active.disabled.focused {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.century.active.disabled.focused:hover {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
 }
 
 .container-fluid {
@@ -74,53 +69,6 @@
 
 .data-options-title {
   padding-bottom: 1rem !important;
-}
-
-.datepicker {
-  background-color: #FFFFFF !important;
-  box-shadow: 0 -6px 12px rgb(var(--bs-body-color-rgb, 0, 0, 0), 0.1);
-  border-radius: 0 0 var(--bs-border-radius) var(--bs-border-radius);
-  color: var(--bs-body-color);
-}
-
-.datepicker table tr td.active.day { /* current month and selected day, no hover */
-  background-color: rgb(226, 233, 235);
-  border-color: none;
-  color: var(--bs-body-color);
-  text-shadow: none;
-}
-
-.datepicker table tr td.active.day:hover { /*  current month and selected day, hover */
-  background-color: rgb(226, 233, 235);
-  border-color: none;
-  color: var(--bs-body-color);
-  text-shadow: none;
-}
-
-.datepicker table tr td.day:hover { /*  unselected month and day, hover */
-  background-color: rgb(226, 233, 235);
-}
-
-.datepicker table tr td.disabled.day:hover { /*  unselected disabled month and day, hover */
-  background-color: #FFFFFF;
-}
-
-.datepicker-switch:hover {
-  background-color: rgb(226, 233, 235) !important;
-}
-
-.decade.active.disabled.focused {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.decade.active.disabled.focused:hover {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
 }
 
 .figure-footer {
@@ -188,86 +136,11 @@
   top: -12px !important;
 }
 
-.month:hover {
-  background-color: rgb(226, 233, 235) !important;
-}
-
-.month.active {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.month.active:hover {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.month.disabled {
-  background-color: #FFFFFF !important;
-  border-color: none !important;
-  color: var(--bs-tertiary-color) !important;
-  text-shadow: none !important;
-}
-
-.month.disabled:hover {
-  background-color: #FFFFFF !important;
-  border-color: none !important;
-  color: var(--bs-tertiary-color) !important;
-  text-shadow: none !important;
-}
-
-.month.focused {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.month.focused.active {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.month.focused.active:hover {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.month.focused.disabled {
-  background-color: #FFFFFF !important;
-  border-color: none !important;
-  color: var(--bs-tertiary-color) !important;
-  text-shadow: none !important;
-}
-
-.month.focused.disabled:hover {
-  background-color: #FFFFFF !important;
-  border-color: none !important;
-  color: var(--bs-tertiary-color) !important;
-  text-shadow: none !important;
-}
-
-.next:hover {
-  background-color: rgb(226, 233, 235) !important;
-}
-
 .page-bottom-text {
   color: #191919;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 24px !important;
-}
-
-.prev:hover {
-  background-color: rgb(226, 233, 235) !important;
 }
 
 .selectize-dropdown .active {
@@ -313,62 +186,8 @@
   padding-top: 24px !important;
 }
 
-.table-condensed {
-  background-color: #FFFFFF; 
-  color: var(--bs-body-color);
-}
-
-.year:hover {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.year.active {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.year.active.focused {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.year.active.focused:hover {
-  background-color: rgb(226, 233, 235) !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
-.year.disabled {
-  background-color: #FFFFFF !important;
-  border-color: none !important;
-  color: var(--bs-tertiary-color) !important;
-  text-shadow: none !important;
-}
-
-.year.focused {
-  background-color: #FFFFFF !important;
-  border-color: none !important;
-  color: var(--bs-body-color) !important;
-  text-shadow: none !important;
-}
-
 /* id */
 
-#calculateTotal {
+#retrieveData {
   margin-top: 24px !important;
-}
-
-#datepickerModal {
-  color: #989898 !important;
-  font-size: 1rem;
-  font-style: normal;
-  text-align: left;
 }

@@ -77,5 +77,11 @@ sidebar <- bslib::sidebar(
       "wind_vector_dir_stand_dev", 
       "wind_vector_magnitude"
     )
+  ),
+  
+  shiny::actionButton(
+    inputId = "retrieveData",
+    label = "RETRIEVE DATA",
+    class = "btn btn-block btn-blue"
   )
 ) # bslib::sidebar()

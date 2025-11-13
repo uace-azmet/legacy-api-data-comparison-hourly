@@ -35,7 +35,21 @@ ui <- htmltools::htmlTemplate(
 
 server <- function(input, output, session) {
   
-  fullJoin <- shiny::eventReactive(input$azmetStation, {
+  fullJoin <- shiny::eventReactive(input$retrieveData, {
+    idRetrievingData <- shiny::showNotification(
+      ui = "Retrieving data . . .",
+      action = NULL,
+      duration = NULL,
+      closeButton = FALSE,
+      id = "idRetrievingData",
+      type = "message"
+    )
+    
+    on.exit(
+      shiny::removeNotification(id = idRetrievingData), 
+      add = TRUE
+    )
+    
     fxn_fullJoin(
       station = input$azmetStation,
       year = input$year
@@ -51,10 +65,12 @@ server <- function(input, output, session) {
   })
   
   output$figureCaption <- shiny::renderUI({
+    shiny::req(fullJoin())
     fxn_figureCaption()
   })
   
   output$figureTitle <- shiny::renderUI({
+    shiny::req(fullJoin())
     fxn_figureTitle(azmetStation = input$azmetStation)
   })
 }
