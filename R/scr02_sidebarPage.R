@@ -46,7 +46,8 @@ sidebarPage <- bslib::sidebar(
     shiny::selectInput(
       inputId = "azmetStation",
       label = "Station",
-      choices = sort(station_list$stn)
+      choices = sort(station_list$stn),
+      selected = sort(station_list$stn)[1]
     ),
     
     shiny::actionButton(

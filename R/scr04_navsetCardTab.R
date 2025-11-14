@@ -1,6 +1,6 @@
 navsetCardTab <- bslib::navset_card_tab(
   id = "navsetCardTab",
-  selected = "scatterplot",
+  selected = "reporting",
   title = NULL,
   sidebar = NULL,
   header = NULL,

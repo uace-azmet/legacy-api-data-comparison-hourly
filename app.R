@@ -32,9 +32,16 @@ server <- function(input, output, session) {
   
   # Observables -----
   
-  # shiny::observeEvent(fullJoin(), {
-  #   shinyjs::showElement("navsetCardTab")
-  # })
+  shiny::observeEvent(fullJoin(), {
+    # shinyjs::showElement("navsetCardTab")
+    
+    # shiny::updateSelectInput(
+    #   inputId = "azmetStation",
+    #   label = "Station",
+    #   sort(station_list$stn)#,
+    #   #selected = sort(station_list$stn)[1]
+    # )
+  })
   
   
   # Reactives -----
@@ -59,18 +66,6 @@ server <- function(input, output, session) {
       year = input$year
     )
   })
-  
-  # scatterplot <- shiny::eventReactive(input$retrieveHourlyData, {
-  #   fxn_scatterplot(
-  #     inData = fullJoin(),
-  #     legacyVar = input$legacyVars,
-  #     apiVar = input$apiVars
-  #   )
-  # })
-  
-  # scatterplotCaption <- shiny::eventReactive(input$retrieveHourlyData, {
-  #   fxn_scatterplotCaption()
-  # })
   
   scatterplotTitle <- shiny::eventReactive(input$retrieveHourlyData, {
     fxn_scatterplotTitle(azmetStation = input$azmetStation)
