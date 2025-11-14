@@ -16,15 +16,15 @@ fxn_reportingTitle <- function(azmetStation) {
             paste0(
               "Hourly Data from the AZMet ", azmetStation, " Station"
             )
-          ),
-          htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
-          bslib::tooltip(
-            bsicons::bs_icon("info-circle"),
-            "Hover over points for station, date, hour, and variable values.",
-            id = "infoReportingTitle",
-            placement = "right"
-          )
-        ),
+          )#,
+          # htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
+          # bslib::tooltip(
+          #   bsicons::bs_icon("info-circle"),
+          #   "Hover over points for station, date, hour, and variable values.",
+          #   id = "infoReportingTitle",
+          #   placement = "right"
+          # )
+        )
       ),
       
       class = "reporting-title"

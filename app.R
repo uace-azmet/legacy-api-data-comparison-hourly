@@ -41,29 +41,80 @@ server <- function(input, output, session) {
     #   sort(station_list$stn)#,
     #   #selected = sort(station_list$stn)[1]
     # )
-  })
+    }
+  )
   
   
   # Reactives -----
   
-  fullJoin <- shiny::eventReactive(input$retrieveHourlyData, {
+  apiData <- shiny::eventReactive(legacyData(), {
     idRetrievingHourlyData <- shiny::showNotification(
-      ui = "Retrieving hourly data . . .",
+      ui = "Retrieving hourly API data . . .",
       action = NULL,
       duration = NULL,
       closeButton = FALSE,
       id = "idRetrievingHourlyData",
       type = "message"
     )
-    
+
     on.exit(
       shiny::removeNotification(id = idRetrievingHourlyData),
       add = TRUE
     )
-    
-    fxn_fullJoin(
+
+    fxn_apiData(
       station = input$azmetStation,
       year = input$year
+    )
+  })
+  
+  legacyData <- shiny::eventReactive(input$retrieveHourlyData, {
+    idRetrievingHourlyData <- shiny::showNotification(
+      ui = "Retrieving hourly Legacy data . . .",
+      action = NULL,
+      duration = NULL,
+      closeButton = FALSE,
+      id = "idRetrievingHourlyData",
+      type = "message"
+    )
+
+    on.exit(
+      shiny::removeNotification(id = idRetrievingHourlyData),
+      add = TRUE
+    )
+
+    fxn_legacyData(
+      station = input$azmetStation,
+      year = input$year
+    )
+  })
+  
+  fullJoin <- shiny::eventReactive(apiData(), {
+    idRetrievingHourlyData <- shiny::showNotification(
+      ui = "Joining hourly Legacy and API data . . .",
+      action = NULL,
+      duration = NULL,
+      closeButton = FALSE,
+      id = "idRetrievingHourlyData",
+      type = "message"
+    )
+
+    on.exit(
+      shiny::removeNotification(id = idRetrievingHourlyData),
+      add = TRUE
+    )
+
+    fxn_fullJoin(
+      legacyData = legacyData(),
+      apiData = apiData()
+    )
+  })
+  
+  reporting <- shiny::eventReactive(input$retrieveHourlyData, {
+    fxn_reporting(
+      year = input$year,
+      legacyData = legacyData(),
+      apiData = apiData()
     )
   })
   
@@ -79,11 +130,7 @@ server <- function(input, output, session) {
   # Outputs -----
   
   output$reporting <- shiny::renderUI({
-    shiny::req(fullJoin())
-    fxn_reporting(
-      azmetStation = input$azmetStation,
-      inData = fullJoin()
-    )
+    reporting()
   })
   
   output$reportingCaption <- shiny::renderUI({
@@ -111,10 +158,6 @@ server <- function(input, output, session) {
   output$scatterplotTitle <- shiny::renderUI({
     scatterplotTitle()
   })
-  
-  # output$table <- shiny::renderTable({
-  #   fullJoin()
-  # })
 }
 
 
