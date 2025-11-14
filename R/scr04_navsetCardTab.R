@@ -11,9 +11,11 @@ navsetCardTab <- bslib::navset_card_tab(
   
   bslib::nav_panel(
     title = "Reporting",
-    value = "reporting"#,
-    #shiny::tableOutput("table")
-    #plotly::plotlyOutput("scatterplot")
+    value = "reporting",
+    
+    shiny::htmlOutput(outputId = "reportingTitle"),
+    shiny::htmlOutput(outputId = "reporting"),
+    shiny::htmlOutput(outputId = "reportingCaption")
   ),
   
   bslib::nav_panel(

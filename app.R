@@ -67,12 +67,33 @@ server <- function(input, output, session) {
     )
   })
   
+  reportingTitle <- shiny::eventReactive(input$retrieveHourlyData, {
+    fxn_reportingTitle(azmetStation = input$azmetStation)
+  })
+  
   scatterplotTitle <- shiny::eventReactive(input$retrieveHourlyData, {
     fxn_scatterplotTitle(azmetStation = input$azmetStation)
   })
   
   
   # Outputs -----
+  
+  output$reporting <- shiny::renderUI({
+    shiny::req(fullJoin())
+    fxn_reporting(
+      azmetStation = input$azmetStation,
+      inData = fullJoin()
+    )
+  })
+  
+  output$reportingCaption <- shiny::renderUI({
+    shiny::req(fullJoin())
+    fxn_reportingCaption()
+  })
+  
+  output$reportingTitle <- shiny::renderUI({
+    reportingTitle()
+  })
   
   output$scatterplot <- plotly::renderPlotly({
     fxn_scatterplot(
