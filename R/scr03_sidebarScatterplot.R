@@ -12,18 +12,18 @@ sidebarScatterplot <- bslib::sidebar(
   padding = NULL,
   
   bslib::accordion(
-    id = "pageAccordion",
+    id = "accordionScatterplot",
     #open = "DATE SELECTION",
     #multiple = TRUE,
     class = NULL,
     width = "auto",
     height = "auto",
-    
+
     # Visible elements
-    
+
     htmltools::p(
-      bsicons::bs_icon("sliders"), 
-      htmltools::HTML("&nbsp;"), 
+      bsicons::bs_icon("sliders"),
+      htmltools::HTML("&nbsp;"),
       "DATA DISPLAY",
       htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
       bslib::tooltip(
@@ -32,13 +32,13 @@ sidebarScatterplot <- bslib::sidebar(
         id = "infoDataOptions",
         placement = "right"
       ),
-      
+
       class = "data-display-title"
     ),
-    
+
     shiny::selectInput(
-      inputId = "legacyVars", 
-      label = "Legacy Variable", 
+      inputId = "legacyVars",
+      label = "Legacy Variable",
       choices = c(
         "obs_hrly_precip_total",
         "obs_hrly_relative_humidity",
@@ -55,23 +55,23 @@ sidebarScatterplot <- bslib::sidebar(
         "obs_hrly_wind_vector_magnitude"
       )
     ),
-    
+
     shiny::selectInput(
-      inputId = "apiVars", 
-      label = "API Variable", 
+      inputId = "apiVars",
+      label = "API Variable",
       choices = c(
-        "precip_total", 
-        "relative_humidity", 
-        "sol_rad_total", 
-        "temp_airC", 
-        "temp_soil_10cmC", 
-        "temp_soil_50cmC", 
-        "vp_actual", 
-        "vp_deficit", 
-        "wind_spd_mps", 
-        "wind_spd_max_mps", 
-        "wind_vector_dir", 
-        "wind_vector_dir_stand_dev", 
+        "precip_total",
+        "relative_humidity",
+        "sol_rad_total",
+        "temp_airC",
+        "temp_soil_10cmC",
+        "temp_soil_50cmC",
+        "vp_actual",
+        "vp_deficit",
+        "wind_spd_mps",
+        "wind_spd_max_mps",
+        "wind_vector_dir",
+        "wind_vector_dir_stand_dev",
         "wind_vector_magnitude"
       )
     )

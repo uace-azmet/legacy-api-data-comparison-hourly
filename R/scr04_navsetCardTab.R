@@ -1,6 +1,6 @@
 navsetCardTab <- bslib::navset_card_tab(
   id = "navsetCardTab",
-  selected = "reporting",
+  selected = "scatterplot",
   title = NULL,
   sidebar = NULL,
   header = NULL,
@@ -11,7 +11,9 @@ navsetCardTab <- bslib::navset_card_tab(
   
   bslib::nav_panel(
     title = "Reporting",
-    value = "reporting"
+    value = "reporting"#,
+    #shiny::tableOutput("table")
+    #plotly::plotlyOutput("scatterplot")
   ),
   
   bslib::nav_panel(
@@ -20,9 +22,8 @@ navsetCardTab <- bslib::navset_card_tab(
     
     bslib::layout_sidebar(
       sidebar = sidebarScatterplot, # `scr##_sidebarScatterplot.R`
-      
+
       shiny::htmlOutput(outputId = "scatterplotTitle"),
-      # shiny::htmlOutput(outputId = "figureSummary"),
       plotly::plotlyOutput(outputId = "scatterplot"),
       shiny::htmlOutput(outputId = "scatterplotCaption")
     )
@@ -30,7 +31,8 @@ navsetCardTab <- bslib::navset_card_tab(
   
   bslib::nav_panel(
     title = "Validation",
-    value = "validation"
+    value = "validation"#,
+    #plotly::plotlyOutput("scatterplot")
   )
 ) |>
   htmltools::tagAppendAttributes(

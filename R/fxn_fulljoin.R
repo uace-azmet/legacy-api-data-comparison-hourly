@@ -65,8 +65,8 @@ fxn_fullJoin <- function(station, year) {
   
   api <- azmetr::az_hourly(
     station_id = station_id,
-    start_date_time = "2021-01-01 00",
-    end_date_time = "2021-12-31 24"
+    start_date_time = paste(year, "-01-01 00"),
+    end_date_time = paste(year, "-12-31 24")
   ) %>% 
     dplyr::select(
       "date_datetime", 

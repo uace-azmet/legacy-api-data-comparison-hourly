@@ -12,7 +12,7 @@ sidebarPage <- bslib::sidebar(
   padding = NULL,
   
   bslib::accordion(
-    id = "pageAccordion",
+    id = "accordionPage",
     #open = "DATE SELECTION",
     #multiple = TRUE,
     class = NULL,

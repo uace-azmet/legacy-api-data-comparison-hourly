@@ -15,7 +15,7 @@ ui <- htmltools::htmlTemplate(
     bslib::layout_sidebar(
       sidebar = sidebarPage, # `scr##_sidebarPage.R`
       navsetCardTab
-    ),
+    )#,
     
     # shiny::htmlOutput(outputId = "pageBottomText")
   )
@@ -26,6 +26,15 @@ ui <- htmltools::htmlTemplate(
 
 
 server <- function(input, output, session) {
+  # shinyjs::useShinyjs(html = TRUE)
+  # shinyjs::hideElement("navsetCardTab")
+  
+  
+  # Observables -----
+  
+  # shiny::observeEvent(fullJoin(), {
+  #   shinyjs::showElement("navsetCardTab")
+  # })
   
   
   # Reactives -----
@@ -41,7 +50,7 @@ server <- function(input, output, session) {
     )
     
     on.exit(
-      shiny::removeNotification(id = idRetrievingHourlyData), 
+      shiny::removeNotification(id = idRetrievingHourlyData),
       add = TRUE
     )
     
@@ -77,15 +86,19 @@ server <- function(input, output, session) {
       apiVar = input$apiVars
     )
   })
-  
+
   output$scatterplotCaption <- shiny::renderUI({
     shiny::req(fullJoin())
     fxn_scatterplotCaption()
   })
-  
+
   output$scatterplotTitle <- shiny::renderUI({
     scatterplotTitle()
   })
+  
+  # output$table <- shiny::renderTable({
+  #   fullJoin()
+  # })
 }
 
 

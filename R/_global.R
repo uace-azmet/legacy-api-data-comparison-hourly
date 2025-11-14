@@ -25,6 +25,8 @@ library(tidyr)
 # source("./R/azmet_daily_data_download.R")
 # source("./R/azmet_hourly_data_download.R")
 
+# shiny::addResourcePath("shinyjs", system.file("srcjs", package = "shinyjs"))
+
 station_list <- read_csv("azmet-station-list.csv")
 
 
