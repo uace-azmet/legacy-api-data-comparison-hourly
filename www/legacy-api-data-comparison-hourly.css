@@ -201,6 +201,10 @@
 */
 /* id */
 
-#year {
-  margin-top: 32px;
+#azmetStation-label {
+  margin-top: 8px !important;
+}
+
+#apiVars-label {
+  margin-top: 8px !important;
 }

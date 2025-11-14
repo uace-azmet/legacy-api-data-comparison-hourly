@@ -27,12 +27,6 @@ navsetCardTab <- bslib::navset_card_tab(
       plotly::plotlyOutput(outputId = "scatterplot"),
       shiny::htmlOutput(outputId = "scatterplotCaption")
     )
-  ),
-  
-  bslib::nav_panel(
-    title = "Validation",
-    value = "validation"#,
-    #plotly::plotlyOutput("scatterplot")
   )
 ) |>
   htmltools::tagAppendAttributes(
