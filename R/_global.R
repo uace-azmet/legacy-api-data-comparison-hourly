@@ -33,5 +33,5 @@ station_list <- read_csv("azmet-station-list.csv")
 
 # Variables --------------------
 
-obsYears <- seq(from = 2020, to = 2022)
+obsYears <- seq(from = 2020, to = 2025)
 obsYearsInitial <- 2021

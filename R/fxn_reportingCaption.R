@@ -3,7 +3,8 @@
 #' @return `reportingCaption` - Caption for reporting tab
 
 
-fxn_reportingCaption <- function() {
+fxn_reportingCaption <- function(legacyData, apiData) {
+  
   reportingCaption <- 
     htmltools::p(
       htmltools::HTML(

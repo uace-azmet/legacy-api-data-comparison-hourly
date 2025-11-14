@@ -151,8 +151,14 @@ server <- function(input, output, session) {
   })
 
   output$scatterplotCaption <- shiny::renderUI({
-    shiny::req(fullJoin())
-    fxn_scatterplotCaption()
+    # shiny::req(fullJoin())
+    fxn_scatterplotCaption(
+      legacyData = legacyData(),
+      legacyVar = input$legacyVars,
+      apiData = apiData(),
+      apiVar = input$apiVars,
+      fullJoin = fullJoin()
+    )
   })
 
   output$scatterplotTitle <- shiny::renderUI({
