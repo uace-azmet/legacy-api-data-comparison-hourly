@@ -12,6 +12,7 @@ library(plotly)
 library(purrr)
 library(readr)
 library(shiny)
+# library(shinyjs)
 library(snakecase)
 library(stringr)
 library(tidyr)
@@ -25,10 +26,12 @@ library(tidyr)
 # source("./R/azmet_daily_data_download.R")
 # source("./R/azmet_hourly_data_download.R")
 
+# shiny::addResourcePath("shinyjs", system.file("srcjs", package = "shinyjs"))
+
 station_list <- read_csv("azmet-station-list.csv")
 
 
 # Variables --------------------
 
-obsYears <- seq(from = 1987, to = 2022)
+obsYears <- seq(from = 2020, to = 2025)
 obsYearsInitial <- 2021
