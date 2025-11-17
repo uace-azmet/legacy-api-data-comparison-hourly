@@ -19,11 +19,11 @@ fxn_scatterplotCaption <- function(legacyData, legacyVar, apiData, apiVar, fullJ
     dplyr::summarise(n = sum(differences != 0))
   
   apiVarNAs <- apiData %>% 
-    dplyr::select(apiVar) %>% 
+    dplyr::select(dplyr::all_of(apiVar)) %>% 
     dplyr::summarise(total = sum(is.na(.)))
   
   legacyVarNAs <- legacyData %>% 
-    dplyr::select(legacyVar) %>% 
+    dplyr::select(dplyr::all_of(legacyVar)) %>% 
     dplyr::summarise(total = sum(is.na(.)))
   
   
