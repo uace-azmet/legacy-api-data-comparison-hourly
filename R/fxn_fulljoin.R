@@ -1,7 +1,7 @@
 #' `fxn_fullJoin.R` - Download, transform, and join legacy and API data
 #' 
-#' @param station - AZMet station selection by user
-#' @param year - Year selection by user
+#' @param legacyData - Output from `fxn_legacyData.R`
+#' @param apiData - Output from `fxn_apiData.R`
 #' @return `fullJoin` - Downloaded, transformed, and joined legacy and API data
 
 
