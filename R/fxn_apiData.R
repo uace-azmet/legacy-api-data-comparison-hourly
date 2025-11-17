@@ -16,10 +16,18 @@ fxn_apiData <- function(station, year) {
     station_id <- paste0("az", stationInfo$stn_no)
   }
   
+  start_date_time <- paste(year, "-01-01 00")
+  
+  if (Sys.Date() < as.Date(paste0(year, "-12-31"))) {
+    end_date_time <- Sys.time() - lubridate::dhours(x = 1)
+  } else {
+    end_date_time <- paste0(year, "-12-31 24")
+  }
+  
   apiData <- azmetr::az_hourly(
     station_id = station_id,
-    start_date_time = paste(year, "-01-01 00"),
-    end_date_time = paste(year, "-12-31 24")
+    start_date_time = start_date_time,
+    end_date_time = end_date_time
   ) %>% 
     dplyr::select(
       "date_datetime", 
