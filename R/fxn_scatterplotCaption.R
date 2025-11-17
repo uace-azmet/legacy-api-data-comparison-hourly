@@ -35,7 +35,7 @@ fxn_scatterplotCaption <- function(legacyData, legacyVar, apiData, apiVar, fullJ
         paste0(
           "Maximum difference: <strong>", max(dataDifferences$differences, na.rm = TRUE), "</strong><br>",
           "Minimum difference: <strong>", min(dataDifferences$differences, na.rm = TRUE), "</strong><br>",
-          "Non-zero-difference count: <strong>", dataDifferencesNonZero, "</strong><br>",
+          "Non-zero-difference count: <strong>", dataDifferencesNonZero$n, "</strong><br>",
           
           "Legacy NAs: <strong>", legacyVarNAs$total, "</strong> ", legacyVar, "<br>",
           "API NAs: <strong>", apiVarNAs$total, "</strong> ", apiVar

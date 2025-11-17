@@ -16,6 +16,10 @@ fxn_reporting <- function(year, legacyData, apiData) {
     expectedDays <- 365
   }
   
+  if (Sys.Date() < as.Date(paste0(year, "-12-31"))) {
+    expectedDays <- as.integer(Sys.Date() - as.Date(paste0(year, "-01-01")))
+  }
+  
   expectedHours <- expectedDays * 24
   
   apiNAs <- apiData %>% 

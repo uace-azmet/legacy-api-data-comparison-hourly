@@ -1,10 +1,11 @@
 #' `fxn_scatterplotTitle.R` - Build title for scatterplot tab
 #' 
 #' @param azmetStation - AZMet station selection by user
+#' @param year - Year selection by user
 #' @return `scatterplotTitle` - Title for scatterplot based on selected station
 
 
-fxn_scatterplotTitle <- function(azmetStation) {
+fxn_scatterplotTitle <- function(azmetStation, year) {
   scatterplotTitle <- 
     htmltools::p(
       htmltools::HTML(
@@ -14,7 +15,7 @@ fxn_scatterplotTitle <- function(azmetStation) {
           htmltools::HTML("&nbsp;"),
           toupper(
             paste0(
-              "Hourly Data from the AZMet ", azmetStation, " Station"
+              "Hourly Data from ", year, " at the AZMet ", azmetStation, " Station"
             )
           ),
           htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
