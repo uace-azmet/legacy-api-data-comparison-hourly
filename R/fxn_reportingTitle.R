@@ -1,10 +1,11 @@
 #' `fxn_reportingTitle.R` - Build title for reporting tab
 #' 
 #' @param azmetStation - AZMet station selection by user
+#' @param year - Year selection by user
 #' @return `reportingTitle` - Title for reporting tab based on selected station
 
 
-fxn_reportingTitle <- function(azmetStation) {
+fxn_reportingTitle <- function(azmetStation, year) {
   reportingTitle <- 
     htmltools::p(
       htmltools::HTML(
@@ -14,7 +15,7 @@ fxn_reportingTitle <- function(azmetStation) {
           htmltools::HTML("&nbsp;"),
           toupper(
             paste0(
-              "Hourly Data from the AZMet ", azmetStation, " Station"
+              "Hourly Data from ", year, " at the AZMet ", azmetStation, " Station"
             )
           )#,
           # htmltools::HTML("&nbsp;&nbsp;&nbsp;&nbsp;"),
