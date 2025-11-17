@@ -19,7 +19,8 @@ fxn_apiData <- function(station, year) {
   start_date_time <- paste(year, "-01-01 00")
   
   if (Sys.Date() < as.Date(paste0(year, "-12-31"))) {
-    end_date_time <- Sys.time() - lubridate::dhours(x = 1)
+    # end_date_time <- Sys.time() - lubridate::dhours(x = 1)
+    end_date_time <- paste0(Sys.Date() - lubridate::ddays(x = 1), " 24")
   } else {
     end_date_time <- paste0(year, "-12-31 24")
   }
