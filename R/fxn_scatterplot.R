@@ -19,8 +19,8 @@ fxn_scatterplot <- function(inData, legacyVar, apiVar) {
   
   scatterplotFontFamily <- "proxima-nova, calibri, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
   
-  max <- max(inData[[legacyVar]], inData[[apiVar]]) + (0.03 * max(inData[[legacyVar]], inData[[apiVar]]))
-  min <- min(inData[[legacyVar]], inData[[apiVar]]) - (0.03 * min(inData[[legacyVar]], inData[[apiVar]]))
+  max <- max(inData[[legacyVar]], inData[[apiVar]], na.rm = TRUE) + (0.03 * max(inData[[legacyVar]], inData[[apiVar]], na.rm = TRUE))
+  min <- min(inData[[legacyVar]], inData[[apiVar]], na.rm = TRUE) - (0.03 * max(inData[[legacyVar]], inData[[apiVar]], na.rm = TRUE))
 
   scatterplot <-
     plotly::plot_ly(
