@@ -16,7 +16,7 @@ fxn_scatterplotCaption <- function(legacyData, legacyVar, apiData, apiVar, fullJ
     dplyr::mutate(differences = .[legacyVar] - .[apiVar])
   
   dataDifferencesNonZero <- dataDifferences %>% 
-    dplyr::summarise(n = sum(differences != 0))
+    dplyr::summarise(n = sum(differences != 0, na.rm = TRUE))
   
   apiVarNAs <- apiData %>% 
     dplyr::select(dplyr::all_of(apiVar)) %>% 
